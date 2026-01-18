@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  template:
+    metadata:
+      labels:
+        color: blue
+        version: stable
+    spec:
+      containers:
+      - name: app
+        env:
+        - name: COLOR
+          value: "blue"
+        - name: VERSION
+          value: "stable"

@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: myapp
+  namespace: production
+spec:
+  host: myapp
+  subsets:
+  - name: blue
+    labels:
+      color: blue
+  - name: green
+    labels:
+      color: green
+  trafficPolicy:
+    loadBalancer:
+      consistentHash:
+        httpHeaderName: x-session-id

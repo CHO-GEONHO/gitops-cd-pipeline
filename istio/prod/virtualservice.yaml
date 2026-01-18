@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: myapp
+  namespace: production
+spec:
+  hosts:
+  - myapp.example.com
+  gateways:
+  - myapp-gateway
+  http:
+  - route:
+    - destination:
+        host: myapp
+        subset: blue
+      weight: 100
+    - destination:
+        host: myapp
+        subset: green
+      weight: 0

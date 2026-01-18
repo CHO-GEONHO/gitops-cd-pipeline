@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: myapp-gateway
+  namespace: production
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - myapp.example.com
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: myapp-tls-cert
+    hosts:
+    - myapp.example.com

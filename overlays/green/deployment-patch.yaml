@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  template:
+    metadata:
+      labels:
+        color: green
+        version: canary
+    spec:
+      containers:
+      - name: app
+        env:
+        - name: COLOR
+          value: "green"
+        - name: VERSION
+          value: "canary"
