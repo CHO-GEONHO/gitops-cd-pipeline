@@ -1,0 +1,19 @@
+# Environment
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Kubernetes secrets
+k8s/secret.yaml
+**/secret.yaml
+
+# Temporary
+*.tmp
+.cache/
